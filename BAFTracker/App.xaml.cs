@@ -14,6 +14,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using BAFTracker.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace BAFTracker
 {
@@ -28,8 +30,13 @@ namespace BAFTracker
         /// </summary>
         public App()
         {
-            this.InitializeComponent();
-            this.Suspending += OnSuspending;
+            InitializeComponent();
+            Suspending += OnSuspending;
+
+            using (var db = new BAFTrackerContext())
+            {
+                db.Database.Migrate();
+            }
         }
 
         /// <summary>

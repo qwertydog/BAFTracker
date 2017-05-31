@@ -24,7 +24,7 @@ namespace BAFTracker
     {
         public MainPage()
         {
-            this.InitializeComponent();
+            InitializeComponent();
         }
     }
 }
